@@ -11,13 +11,23 @@ namespace DataTransfer4
         {
             // Create the ObservableCollection for the Information items.
             InfoCollection = new ObservableCollection<Information>();
+            
+            DataTransferHomePage = new DataTransfer4.DataTransfer4HomePage();
 
-            MainPage = new NavigationPage(new DataTransfer4HomePage());
+            MainPage = new NavigationPage(DataTransferHomePage);
         }
+        
+        public DataTransfer4HomePage DataTransferHomePage { private set; get; }
 
         public IList<Information> InfoCollection { private set; get; }
 
         public Information CurrentInfoItem { set; get; }
+        
+        internal void SetListViewMainPage()
+        {
+            DataTransferHomePage.FindByName<ListView>("listView").ItemsSource = null;
+            DataTransferHomePage.FindByName<ListView>("listView").ItemsSource = InfoCollection;
+        }
 
 
         protected override void OnStart()

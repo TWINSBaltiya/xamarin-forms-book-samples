@@ -12,13 +12,17 @@ namespace DataTransfer2
         {
             InitializeComponent();
 
-            // Set collection to ListView.
-            listView.ItemsSource = list;
+            // Set collection to ListView - don't work for Win!!! (07 May 2017)
+            // listView.ItemsSource = list;
 
             // Subscribe to "InformationReady" message.
             MessagingCenter.Subscribe<DataTransfer2InfoPage, Information>
                 (this, "InformationReady", (sender, info) =>
-                {
+                {             
+                    // To work for Win it needs. (07 May 2017)
+ +                  listView.ItemsSource = null;
+ +                  listView.ItemsSource = list;
+                    
                     // If the object has already been added, replace it.
                     int index = list.IndexOf(info);
 

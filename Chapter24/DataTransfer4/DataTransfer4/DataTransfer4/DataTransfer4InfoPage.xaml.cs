@@ -54,6 +54,8 @@ namespace DataTransfer4
             {
                 list.Add(info);
             }
+            
+            app.SetListViewMainPage();
         }
     }
 }

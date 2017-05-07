@@ -12,8 +12,8 @@ namespace DataTransfer1
         {
             InitializeComponent();
 
-            // Set collection to ListView.
-            listView.ItemsSource = list;
+            // Set collection to ListView - don't work for Win!!! (07 May 2017)
+            // listView.ItemsSource = list;
         }
 
         // Button Clicked handler.
@@ -39,6 +39,10 @@ namespace DataTransfer1
         // Called from InfoPage.
         public void InformationReady(Information info)
         {
+            // To work for Win it need. (07 May 2017)
+            listView.ItemsSource = null;
+            listView.ItemsSource = list;
+            
             // If the object has already been added, replace it.
             int index = list.IndexOf(info);
 

@@ -11,8 +11,8 @@ namespace DataTransfer4
         {
             InitializeComponent();
 
-            // Set collection to ListView.
-            listView.ItemsSource = app.InfoCollection;
+            // Set collection to ListView   - don't work for Win!!! (07 May 2017)
+            // listView.ItemsSource = app.InfoCollection;
         }
 
         // Button Clicked handler.
